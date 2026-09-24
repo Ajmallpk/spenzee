@@ -1,4 +1,5 @@
 export * from './pages/AuthPage'
+export * from './pages/ForgotPasswordPage'
 export * from './components/RoleToggle'
 export * from './components/EditorialLeftHero'
 export * from './components/BrutalistSignInForm'

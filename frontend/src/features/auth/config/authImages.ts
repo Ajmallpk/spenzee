@@ -1,6 +1,9 @@
 import authBgSignin from '@/assets/authbgsingin.png'
 import authBgSignup from '@/assets/authsingupbg.png'
+import forgotPasswordBg from '@/assets/forgotpassword.png'
 import defaultHeroImg from '@/assets/auth-hero.jpg'
+
+export { forgotPasswordBg }
 
 export interface RoleAuthImages {
   login: string

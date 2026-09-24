@@ -66,9 +66,9 @@ export const AuthPage = ({
 
   return (
     <div className="relative min-h-screen w-full bg-[#08120e] text-[#f7f8f6] selection:bg-[#68b991] selection:text-[#0b1914] overflow-x-hidden">
-      {/* 1. REUSED LANDING PAGE NAVBAR FIXED AT TOP */}
+      {/* 1. REUSED LANDING PAGE NAVBAR FIXED AT TOP (TRANSPARENT GLASS ON AUTH) */}
       <div className="fixed left-0 right-0 top-0 z-50">
-        <Navbar />
+        <Navbar transparent />
       </div>
 
       {/* 2. DYNAMIC BACKGROUND IMAGE: authbgsingin.png for Sign In, authsingupbg.png for Sign Up */}
@@ -121,7 +121,7 @@ export const AuthPage = ({
                     onRoleChange={handleRoleChange}
                     onSubmit={onLoginSubmit}
                     onSwitchToSignup={() => handleModeChange('signup')}
-                    onForgotPasswordClick={onForgotPasswordClick}
+                    onForgotPasswordClick={onForgotPasswordClick || (() => navigate('/forgot-password'))}
                   />
                 </motion.div>
               ) : (
