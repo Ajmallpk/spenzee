@@ -1,0 +1,112 @@
+@theme {
+  --color-spenzee-green-50: #f1f8f4;
+  --color-spenzee-green-100: #dceee4;
+  --color-spenzee-green-200: #b9ddc9;
+  --color-spenzee-green-300: #8fc7a9;
+  --color-spenzee-green-400: #68b991;
+  --color-spenzee-green-500: #3d9a70;
+  --color-spenzee-green-600: #237556;
+  --color-spenzee-green-700: #195b43;
+  --color-spenzee-green-800: #104632;
+  --color-spenzee-green-900: #0b1914;
+
+  --color-spenzee-cream: #f7f8f6;
+  --color-spenzee-white: #ffffff;
+  --color-spenzee-black: #0d1713;
+  --color-spenzee-dark: #0b1914;
+  --color-spenzee-dark-soft: #12231c;
+}
+
+:root {
+  --spenzee-background: #f7f8f6;
+  --spenzee-surface: #ffffff;
+  --spenzee-surface-soft: #eef3ef;
+
+  --spenzee-text-primary: #0d1713;
+  --spenzee-text-secondary: #52605a;
+  --spenzee-text-muted: #89948f;
+
+  --spenzee-border: rgba(13, 23, 19, 0.10);
+  --spenzee-border-strong: rgba(13, 23, 19, 0.18);
+
+  --spenzee-green: #237556;
+  --spenzee-green-light: #68b991;
+
+  --spenzee-dark: #0b1914;
+  --spenzee-dark-text: #f7faf8;
+
+  --spenzee-radius-sm: 8px;
+  --spenzee-radius-md: 12px;
+  --spenzee-radius-lg: 16px;
+  --spenzee-radius-xl: 20px;
+  --spenzee-radius-2xl: 24px;
+
+  --spenzee-container: 1280px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background: var(--spenzee-background);
+  color: var(--spenzee-text-primary);
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--spenzee-green);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--spenzee-green);
+  outline-offset: 3px;
+}
