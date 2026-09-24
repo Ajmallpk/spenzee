@@ -1,5 +1,5 @@
-import userSigninImg from '@/assets/usersingin.png'
-import userSignupImg from '@/assets/usersingup.png'
+import authBgSignin from '@/assets/authbgsingin.png'
+import authBgSignup from '@/assets/authsingupbg.png'
 import defaultHeroImg from '@/assets/auth-hero.jpg'
 
 export interface RoleAuthImages {
@@ -13,8 +13,8 @@ export interface RoleAuthImages {
  */
 export const AUTH_ROLE_IMAGES: Record<string, RoleAuthImages> = {
   user: {
-    login: userSigninImg,
-    signup: userSignupImg,
+    login: authBgSignin,
+    signup: authBgSignup,
   },
   provider: {
     // Will be updated when provider images are provided

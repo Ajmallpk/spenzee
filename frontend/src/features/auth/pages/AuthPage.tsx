@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from '@/features/landing/sections/Navbar/Navbar'
+import authBgSignin from '@/assets/authbgsingin.png'
+import authBgSignup from '@/assets/authsingupbg.png'
 import { EditorialLeftHero } from '../components/EditorialLeftHero'
 import { BrutalistSignInForm } from '../components/BrutalistSignInForm'
 import { BrutalistSignUpForm } from '../components/BrutalistSignUpForm'
@@ -69,24 +71,42 @@ export const AuthPage = ({
         <Navbar />
       </div>
 
-      {/* Subtle Ambient Lighting: Spenzee Green & Soft Cream Aura */}
-      <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute -top-32 -left-32 h-[550px] w-[550px] rounded-full bg-[#104632]/25 blur-[160px]" />
-        <div className="absolute top-1/2 -right-32 h-[500px] w-[500px] rounded-full bg-[#237556]/15 blur-[170px]" />
-        <div className="absolute -bottom-32 left-1/3 h-[500px] w-[500px] rounded-full bg-emerald-950/20 blur-[180px]" />
+      {/* 2. DYNAMIC BACKGROUND IMAGE: authbgsingin.png for Sign In, authsingupbg.png for Sign Up */}
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={mode === 'login' ? 'bg-signin' : 'bg-signup'}
+            src={mode === 'login' ? authBgSignin : authBgSignup}
+            alt="Auth Background"
+            initial={{ opacity: 0, scale: 1.02 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.45, ease: 'easeInOut' }}
+            className="h-full w-full object-cover object-center"
+          />
+        </AnimatePresence>
+        {/* Soft Vignette Overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-[#08120e]/65" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#08120e] via-transparent to-[#08120e]/70" />
       </div>
 
-      {/* Main Container */}
-      <main className="relative z-10 w-full max-w-[1440px] mx-auto min-h-screen pt-24 sm:pt-28 lg:pt-32 pb-12 flex flex-col justify-center px-4 sm:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch rounded-3xl bg-[#0b1914]/60 border border-emerald-900/30 backdrop-blur-sm shadow-[0_20px_70px_rgba(0,0,0,0.6)]">
+      {/* Subtle Ambient Lighting: Spenzee Green & Soft Cream Aura */}
+      <div className="pointer-events-none fixed inset-0 z-0">
+        <div className="absolute -top-32 -left-32 h-[550px] w-[550px] rounded-full bg-[#104632]/20 blur-[160px]" />
+        <div className="absolute top-1/2 -right-32 h-[500px] w-[500px] rounded-full bg-[#237556]/15 blur-[170px]" />
+      </div>
+
+      {/* Main Content Placed Directly on Page Background Canvas */}
+      <main className="relative z-10 w-full max-w-[1440px] mx-auto min-h-screen pt-24 sm:pt-28 lg:pt-32 pb-12 flex flex-col justify-center px-4 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch w-full">
           
           {/* Left Column: Architectural Editorial Hero */}
-          <div className="border-b lg:border-b-0 lg:border-r border-emerald-900/30 flex flex-col">
+          <div className="flex flex-col justify-center">
             <EditorialLeftHero mode={mode} />
           </div>
 
           {/* Right Column: Brutalist Form (Sign In / Sign Up with Role Toggle) */}
-          <div className="flex flex-col justify-center px-4 sm:px-8 lg:px-14 py-8 sm:py-12">
+          <div className="flex flex-col justify-center px-4 sm:px-8 lg:px-12 py-6 sm:py-8">
             <AnimatePresence mode="wait">
               {mode === 'login' ? (
                 <motion.div
